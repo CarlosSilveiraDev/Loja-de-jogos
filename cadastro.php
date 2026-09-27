@@ -1,54 +1,40 @@
 <?php
-$host = "localhost";
-$usuario = "root";
-$senha_db = "";
-$banco = "cadastro";
+    include "conexao.php"; /*"copia e cola" a outra pasta aqui dentro*/
 
-$conn = new mysqli($host, $usuario, $senha_db, $banco);
+    $nome = $_POST['nome']; /*post recebe oq o usuário digitou no input 'nome' e guarda nessa variável que criei*/
+    $email = $_POST['email'];
+    $confirma_email = $_POST['confirma_email'];
+    $senha = $_POST['senha'];
+    $confirma_senha = $_POST['confirma_senha'];
 
-if ($conn->connect_error) {
-    die("Erro ao conectar: " . $conn->connect_error);
-}
+    if ($email !== $confirma_email) {
+        die("Erro! os e-mails não coincidem.");
+    }
 
-$nome           = trim($_POST['nome']);
-$email          = trim($_POST['email']);
-$confirma_email = trim($_POST['confirma_email']);
-$senha          = $_POST['senha'];
-$confirma_senha = $_POST['confirma_senha'];
+    if ($senha !== $confirma_senha) {
+        die("Erro! as senhas não coincidem.");
+    }
 
-if ($email !== $confirma_email) {
-    die("Erro: Os e-mails não coincidem.");
-}
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT); /*faz a senha chegar no banco de dados embaralhada e irreversível*/
 
-if ($senha !== $confirma_senha) {
-    die("Erro: As senhas não coincidem.");
-}
+    /*prepare() monta a query com "?" no lugar dos valores, em vez de colar a variável direto no texto.
+    isso impede que alguém digite algo tipo ' OR '1'='1 num campo e altere o comando SQL (SQL Injection).*/
+    $sql = "INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)";
+    $stmt = $conexao->prepare($sql);
 
-if (strlen($senha) < 6) {
-    die("Erro: A senha deve ter pelo menos 6 caracteres.");
-}
+    if (!$stmt) {
+        die("Erro ao preparar consulta: " . $conexao->error);
+    }
 
-$check = $conn->prepare("SELECT id FROM `usuário` WHERE email = ?");
-$check->bind_param("s", $email);
-$check->execute();
-$check->store_result();
+    $stmt->bind_param("sss", $nome, $email, $senha_hash); /*"sss" = os 3 valores são strings, e aqui sim os valores reais entram no lugar dos "?"*/
+    $resultado = $stmt->execute();
 
-if ($check->num_rows > 0) {
-    die("Erro: Este e-mail já está cadastrado.");
-}
-$check->close();
+    if ($resultado) {
+        echo "Cadastro realizado com sucesso!"; /*se o envio da mensagem para o sql der certo*/
+    } else {
+        echo "Erro ao cadastrar: " . $stmt->error; /*caso o envio der erro, aparece a mensagem informando o erro que ocorreu*/
+    }
 
-$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
-$stmt = $conn->prepare("INSERT INTO `usuário` (nome, email, senha) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $nome, $email, $senha_hash);
-
-if ($stmt->execute()) {
-    echo "Cadastro realizado com sucesso!";
-} else {
-    echo "Erro ao cadastrar: " . $stmt->error;
-}
-
-$stmt->close();
-$conn->close();
+    $stmt->close();
+    $conexao->close();
 ?>
