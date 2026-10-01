@@ -157,3 +157,69 @@ p {
   .acoes { flex-direction: column; width: 100%; max-width: 320px; }
   .btn { text-align: center; justify-content: center; }
 }
+
+
+/* ===== Controles decorativos da tela inicial ===== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.controle-fx {
+  position: absolute;
+  top: 50%;
+  width: clamp(150px, 18vw, 260px);
+  pointer-events: none;
+  z-index: -1;
+  transform: translateY(-50%) var(--inclina);
+  animation: flutuar 7s ease-in-out infinite;
+}
+.controle-fx svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.controle-esquerda {
+  left: 2%;
+  --inclina: rotate(-12deg);
+}
+.controle-direita {
+  right: 2%;
+  --inclina: scaleX(-1) rotate(-12deg);
+  animation-delay: -3.5s;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(-50%) var(--inclina); }
+  50%      { transform: translateY(calc(-50% - 12px)) var(--inclina); }
+}
+
+.controle-fx .corpo {
+  opacity: .55;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, .6));
+}
+
+.controle-fx .linha-verde {
+  stroke: #22ff88;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 5px #22ff88) drop-shadow(0 0 14px rgba(34, 255, 136, .7));
+  animation:
+    cortar 1s cubic-bezier(.6, 0, .2, 1) .5s forwards,
+    brilhar 3s ease-in-out 1.6s infinite;
+}
+@keyframes cortar  { to { stroke-dashoffset: 0; } }
+@keyframes brilhar { 50% { opacity: .65; } }
+
+@media (max-width: 820px) {
+  .controle-fx { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .controle-fx { animation: none; }
+  .controle-fx .linha-verde { animation: none; stroke-dashoffset: 0; }
+}
