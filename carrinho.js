@@ -45,4 +45,50 @@ function finalizarCompra() {
 }
 
 function atualizarContador() {
-  const total = lerCarrinho().reduce((soma, i) => soma +
+  const total = lerCarrinho().reduce((soma, i) => soma + i.qtd, 0);
+  const el = document.getElementById('contador-carrinho');
+  if (el) el.textContent = total;
+}
+
+function renderizarCarrinho() {
+  const lista = document.getElementById('lista-carrinho');
+  const totalEl = document.getElementById('total');
+  if (!lista) return;
+
+  const carrinho = lerCarrinho();
+  if (carrinho.length === 0) {
+    lista.innerHTML = '<p class="vazio">Seu carrinho está vazio.</p>';
+    totalEl.textContent = 'R$ 0,00';
+    return;
+  }
+
+  let total = 0;
+  lista.innerHTML = carrinho.map(item => {
+    const jogo = jogos.find(j => j.id === item.id);
+    if (!jogo) return '';
+    const subtotal = jogo.preco * item.qtd;
+    total += subtotal;
+    return `
+      <div class="item">
+        <img src="${jogo.img}" alt="${jogo.nome}">
+        <div class="info">
+          <h3>${jogo.nome}</h3>
+          <p>R$ ${jogo.preco.toFixed(2).replace('.', ',')}</p>
+        </div>
+        <div class="qtd">
+          <button onclick="alterarQtd(${jogo.id}, -1)">-</button>
+          <span>${item.qtd}</span>
+          <button onclick="alterarQtd(${jogo.id}, 1)">+</button>
+        </div>
+        <strong>R$ ${subtotal.toFixed(2).replace('.', ',')}</strong>
+        <button class="remover" onclick="removerDoCarrinho(${jogo.id})">Remover</button>
+      </div>`;
+  }).join('');
+
+  totalEl.textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  atualizarContador();
+  renderizarCarrinho();
+});
