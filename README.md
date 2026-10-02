@@ -28,7 +28,7 @@ Cada funcionalidade nasce em uma branch própria, é enviada por Pull Request,
 revisada por outro integrante e depois integrada ao projeto.
 
 ## Screenshots
-![Tela inicial](img/tela-inicial.png)
+![Tela inicial do site Server Player](img/pagina_inicial.png)
 
 ## Organização da equipe
 - Backlog: Gerenciamento das ISSUES: https://github.com/Feijao-com-arroz/Loja-de-jogos/issues?q=is%3Aissue+state%3Aclosed
