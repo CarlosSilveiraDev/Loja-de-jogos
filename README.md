@@ -1,20 +1,40 @@
-# ServerPlayer
+## Integrantes
+- (Ruan Nascimento Diniz - @ruandiniz0800-gt1)
+- (Carlos Eduardo Almeida Silveira - @CarlosSilveiraDev)
+- (Herisson Viana Guedes Júnior - @jotinhajr47-blip)
+- (Lucas Pereira Barbosa Santana - @Luc45s)
 
-Loja de jogos com sistema de login e cadastro de usuários, desenvolvida em HTML e CSS .
+## Problema e objetivo
+O objetivo desse projeto é desenvolver uma plataforma e-commerce de venda de jogos digitais de forma clara e direta para os usuários, sem interfaces poluídas e processos burocráticos.
 
-## Funcionalidades
-
-- Cadastro de usuário com senha criptografada (hash)
-- Catálogo de jogos na página inicial
-- Página de detalhes individual para cada jogo
+## Funcionalidades:
+- Tela inicial com apresentação da loja
+- Login e cadastro
+- Páginas de compra e detalhes dos jogos
 
 ## Tecnologias
+HTML, CSS E JS.
 
-- HTML5 e CSS3
+## Como executar
+1. Clone o repositório: git clone https://github.com/Feijao-com-arroz/Loja-de-jogos.git
+2. Abra a pasta no VS Code.
+3. Abra o index.html no navegador (ou use a extensão Live Server).
 
-## Estrutura do projeto
+## Site publicado: https://feijao-com-arroz.github.io/Loja-de-jogos/
 
-```
+## Fluxo Git
+Cada funcionalidade nasce em uma branch própria, é enviada por Pull Request,
+revisada por outro integrante e depois integrada ao projeto.
+
+## Screenshots
+![Tela inicial](img/tela-inicial.png)
+
+## Organização da equipe
+- Backlog: Gerenciamento das ISSUES: https://github.com/Feijao-com-arroz/Loja-de-jogos/issues?q=is%3Aissue+state%3Aclosed
+
+- Quadro Kanban: 
+
+## Estrutura do projeto:
 ├── index.html          # Tela de login
 ├── style.css
 ├── cadastro.html        # Tela de criação de conta
@@ -29,7 +49,4 @@ Loja de jogos com sistema de login e cadastro de usuários, desenvolvida em HTML
 ├── perfil.html           # Perfil do usuário
 ├── perfil.css
 └── img/                  # Imagens do projeto
-```
 
-###
-- @kaduvtt_
