@@ -3,6 +3,7 @@
 - (Carlos Eduardo Almeida Silveira - @CarlosSilveiraDev)
 - (Herisson Viana Guedes Júnior - @jotinhajr47-blip)
 - (Lucas Pereira Barbosa Santana - @Luc45s)
+- (Carlos Matheus Rodrigues Da Silva - @matheus912331)
 
 ## Problema e objetivo
 O objetivo desse projeto é desenvolver uma plataforma e-commerce de venda de jogos digitais de forma clara e direta para os usuários, sem interfaces poluídas e processos burocráticos.
