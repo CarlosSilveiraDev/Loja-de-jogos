@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="carrinho.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+</head>
+<body>
+    <header class="topo">
+        <span class="marca">Server<strong>Player</strong></span>
+        <div class="topo-direita">
+            <a href="home.html" class="voltar">Voltar à loja</a>
+            <a href="perfil.html" class="icone-perfil" aria-label="Meu perfil">
+                <i class="bx bxs-user-circle"></i>
+            </a>
+        </div>
+    </header>
+
+    <main class="carrinho">
+        <h1>Meu carrinho</h1>
+        <div id="lista-carrinho"></div>
+
+        <div class="resumo">
+            <p>Total: <strong id="total">R$ 0,00</strong></p>
+            <button class="finalizar" onclick="finalizarCompra()">Finalizar compra</button>
+        </div>
+    </main>
+
+    <script src="jogos.js"></script>
+    <script src="carrinho.js"></script>
+</body>
+</html>
