@@ -33,7 +33,7 @@ revisada por outro integrante e depois integrada ao projeto.
 ## Organização da equipe
 - Backlog: Gerenciamento das ISSUES: https://github.com/Feijao-com-arroz/Loja-de-jogos/issues?q=is%3Aissue+state%3Aclosed
 
-- Quadro Kanban: 
+- Quadro Kanban: https://github.com/orgs/Feijao-com-arroz/projects/1
 
 ## Estrutura do projeto:
 ├── index.html          # Tela de login
