@@ -229,3 +229,5 @@ body {
 .redes a:focus-visible {
     color: var(--accent);
 }
+
+.link-carrinho { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 4px; font-size: 22px; }
