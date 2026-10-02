@@ -35,20 +35,24 @@ revisada por outro integrante e depois integrada ao projeto.
 
 - Quadro Kanban: https://github.com/orgs/Feijao-com-arroz/projects/1
 
-## Estrutura do projeto:
-├── index.html          # Tela de login
-├── style.css
-├── cadastro.html        # Tela de criação de conta
+##
+Loja-de-jogos/
+├── index.html                # Tela inicial
+├── style.css                 # Estilos do site
+├── login.html                # Tela de login
+├── login.css
+├── cadastro.html             # Tela de criação de conta
 ├── cadastro.css
-├── home.html            # Catálogo de jogos
+├── home.html                 # Catálogo de jogos
 ├── home.css
-├── jogo-gta5.html        # Detalhes de cada jogo
+├── jogo-gta5.html            # Detalhes de cada jogo
 ├── jogo-assasinscreed.html
 ├── jogo-minecraft.html
 ├── jogo-fifa22.html
 ├── jogo.css
-├── perfil.html           # Perfil do usuário
+├── perfil.html               # Perfil do usuário
 ├── perfil.css
-└── img/                  # Imagens do projeto
+└── img/                      # Imagens do projeto
+
 
 
