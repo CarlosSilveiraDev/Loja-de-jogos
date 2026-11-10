@@ -1,0 +1,242 @@
+/* ===== CORES E MEDIDAS =====
+   Se o seu style.css já tem cores definidas, troque os valores
+   abaixo para ficar igual à página inicial. */
+:root {
+  --fundo: #15122e;
+  --superficie: #201c42;
+  --borda: #3a3466;
+  --texto: #ecebfa;
+  --texto-suave: #b4b0d6;
+  --destaque: #7c5cff;
+  --destaque-claro: #a58bff;
+}
+
+/* ===== BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--destaque-claro);
+  outline-offset: 3px;
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px 6%;
+  border-bottom: 1px solid var(--borda);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.logo svg {
+  width: 28px;
+  height: 28px;
+  color: var(--destaque-claro);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+nav a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a.ativo {
+  color: var(--texto);
+  border-bottom-color: var(--destaque);
+}
+
+/* ===== CONTEÚDO ===== */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 6%;
+}
+
+main section {
+  padding: 64px 0;
+}
+
+main section + section {
+  border-top: 1px solid var(--borda);
+}
+
+h1 {
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.1;
+  max-width: 18ch;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+p {
+  color: var(--texto-suave);
+  max-width: 62ch;
+}
+
+/* ===== APRESENTAÇÃO ===== */
+.intro {
+  padding-top: 88px;
+}
+
+.intro p {
+  font-size: 1.15rem;
+}
+
+/* ===== PLATAFORMAS ===== */
+.plataformas__lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.plataforma {
+  background: var(--superficie);
+  border-left: 4px solid var(--destaque);
+  border-radius: 8px;
+  padding: 28px;
+}
+
+/* ===== CONFIANÇA ===== */
+.confianca {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.confianca__lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.confianca__lista li {
+  color: var(--texto-suave);
+  padding-left: 20px;
+  border-left: 2px solid var(--destaque);
+}
+
+.confianca__lista strong {
+  display: block;
+  color: var(--texto);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+/* ===== CHAMADA FINAL ===== */
+.chamada {
+  text-align: center;
+}
+
+.acoes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--destaque);
+}
+
+.btn--principal {
+  background: var(--destaque);
+  color: #fff;
+}
+
+.btn--principal:hover {
+  background: var(--destaque-claro);
+  border-color: var(--destaque-claro);
+}
+
+.btn--contorno {
+  background: transparent;
+  color: var(--texto);
+}
+
+.btn--contorno:hover {
+  background: var(--superficie);
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  text-align: center;
+  padding: 32px 6%;
+  border-top: 1px solid var(--borda);
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+footer p {
+  margin: 0 auto;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 720px) {
+  .plataformas__lista,
+  .confianca {
+    grid-template-columns: 1fr;
+  }
+
+  main section {
+    padding: 48px 0;
+  }
+
+  .intro {
+    padding-top: 56px;
+  }
+}
